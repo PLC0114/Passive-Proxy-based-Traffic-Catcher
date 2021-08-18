@@ -66,8 +66,6 @@ class MongoDBFormatHandler(ChainedHandler):
 
         res['response']['status_code'] = response.status_code
 
-        res['response']
-
         if (len(response.content) > 0):
             res['response']['content-type'] = response.headers["Content-Type"]
             res['response']['content'] = self.resolve(self.responseContentResolvers, response.content, res['response']['content-type'])
