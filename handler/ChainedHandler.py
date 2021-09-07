@@ -10,7 +10,9 @@ class ChainedHandler:
         self.next = None
 
     def handle(self, msg):
-        
+        if (msg == None):
+            return
+
         msg = self.doHandle(msg)
 
         if (self.next != None):

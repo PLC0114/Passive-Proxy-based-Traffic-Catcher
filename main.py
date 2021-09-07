@@ -1,3 +1,4 @@
+from handler.DoaminFilterHandler import *
 from handler.MongoDBFormatHandler import *
 from handler.MongoDBStorageHandler import *
 
@@ -13,7 +14,7 @@ class Processor:
     def response(self,flow):
         self.handler.handle(flow)
 
-requestHandler = ChainedHandler.HandlerBuilder().addHandler(MongoDBFormatHandler()).addHandler(MongoDBStorageHandler("request")).build()
+requestHandler = ChainedHandler.HandlerBuilder().addHandler(DomainFilterHandler()).addHandler(MongoDBFormatHandler()).addHandler(MongoDBStorageHandler("request")).build()
 
 addons = [
     Processor(requestHandler)
